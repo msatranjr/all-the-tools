@@ -74,7 +74,7 @@ hash -r
 for tool in node npm git gh curl tar; do has "$tool" || { echo "$tool is unavailable. Restart your terminal and rerun." >&2; exit 1; }; done
 node_ok || { echo 'Node.js 22+ is unavailable. Restart your terminal and rerun.' >&2; exit 1; }
 if ! gh auth status --hostname github.com >/dev/null 2>&1; then
-  gh auth login --hostname github.com --git-protocol https --web < /dev/tty
+  gh auth login --hostname github.com --web --scopes repo < /dev/tty
 fi
 
 
